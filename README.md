@@ -1,17 +1,32 @@
 # JJ-openclash-config
-## OpenClash的配置文件，OpenWrt系统。
+## OpenClash Configuration File for OpenWrt Systems.
 
-### 🔗 配置下载链接
-### 在OpenClash 配置管理 中选择「上传」：
+### 🔗 Configuration Download Links
+### In OpenClash's "Config Management", select "Upload":
 
- **原始链接：**
+**Original link:**
 ```text
 https://raw.githubusercontent.com/sydneygao/JJ-openclash-config/main/JJ-openclash-config.yaml
 ```
-
- **国内加速🚀：** 
- ```text
+**China acceleration 🚀:**
+```text
 https://cdn.jsdelivr.net/gh/sydneygao/JJ-openclash-config@main/JJ-openclash-config.yaml
 ```
+**In the configuration file list, find `JJ-openclash-config.yaml`, select "Edit", fill in the complete ✈️airport subscription address, save and apply.**
+```text
+# 机场订阅
+# 替换自己的机场订阅地址 url: "https://"
+# 订阅更新频率(秒)，不更新填写 interval: 0
+proxy-providers:
+  Airport1:
+    url: "https://"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+```
+### 🤝 Contributing
+Issues and Pull Requests are welcome to help improve this configuration!
 
-### 在 配置文件列表中找到 JJ-openclash-config.yaml，选择 编辑，填写完整机场订阅地址，保存并应用。
