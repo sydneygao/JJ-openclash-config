@@ -1,0 +1,284 @@
+# 机场订阅
+# 替换自己的机场订阅地址 url: "https://"
+# 订阅更新频率(秒)，不更新填写 interval: 0
+proxy-providers:
+  Airport1:
+    url: "https://"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+
+# 全局配置 
+mixed-port: 7890
+allow-lan: true
+bind-address: "*"
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+log-level: info
+keep-alive-idle: 600
+keep-alive-interval: 15
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+external-controller: 0.0.0.0:9090
+secret: ""
+external-ui: ui
+external-ui-url: "https://gh-proxy.com/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
+
+# 嗅探
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  skip-domain:
+    - "+.mijia.com"
+    - "+.mijia.cn"
+    - "+.push.apple.com"
+
+# 入站
+tun:
+  enable: true
+  stack: mixed
+  dns-hijack: ["any:53", "tcp://any:53"]
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+
+# DNS模块
+dns:
+  enable: true
+  cache-algorithm: lru
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.0/16
+  fake-ip-filter:
+    - "+.lan"
+    - "+.local"
+    - "+.market.xiaomi.com"
+  
+  # 启动时用于解析域名服务器IP的“救命DNS”，用最快的UDP即可
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+
+  # 国内 DNS 改用普通 UDP（丢掉 https:// 前缀，去掉加密开销，速度最快）
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+
+  # 指定 DNS 解析代理节点域名
+  proxy-server-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+ 
+# 出站策略，根据自己情况调整每个策略里分组排序，增删都可以，比如把美国自动放到第一个，比如删除香港故转，注意别漏掉表情逗号等。
+# 如果相应分组没有筛选到对应的国家，请根据自己节点名字调整筛选关键字。
+# 没有再使用锚点和icon图标，是考虑很多新手修改难度，这样新手修改某个分组更容易些。
+proxy-groups:
+  # SSID 策略组：特定 WiFi 下自动直连，其他情况使用自动选择
+  - {name: 🚀 默认代理, type: select, proxies: [🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, ♻️ 自动选择, 🌐 手动选择, DIRECT]}
+  - {name: 📹 Google, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
+  - {name: 🤖 Ai, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
+  - {name: 🍎 Apple, type: select, proxies: [DIRECT, 🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择]}
+  - {name: 👨🏿‍💻 GitHub, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
+  - {name: 🐬 Social, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
+  - {name: 💻 Microsoft, type: select, proxies: [DIRECT, 🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择]}
+  - {name: 📲 Games, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
+  - {name: 🎥 NETFLIX, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
+  - {name: 🍀 Spotify, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
+  - {name: 💶 PayPal, type: select, proxies: [🇺🇸 美国节点, 🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🌐 手动选择, DIRECT]}
+  - {name: 🔞 Shield, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT, REJECT]}
+  - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
+  # 区域自动选择组
+  - {name: 🇭🇰 香港节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "HKG"}
+  - {name: 🇯🇵 日本节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "JPN"}
+  - {name: 🇸🇬 新加坡节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "SGP"}
+  - {name: 🇺🇸 美国节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "USA"}
+  - {name: ♻️ 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(HKG|JPN|SGP|USA) 0[1-5]"}
+  - {name: 🌐 手动选择, type: select, include-all: true}
+
+# 规则匹配
+# 规则匹配
+rules:
+
+  # =========================================================
+  # 1. 手工 DOMAIN 规则 —— 明确覆盖后续规则集
+  # =========================================================
+
+  # > 国内/直连
+  - DOMAIN-SUFFIX,unpkg.com,DIRECT
+  - DOMAIN,cdn.jsdelivr.com,DIRECT
+  - DOMAIN,git.yylx.win,DIRECT
+  - DOMAIN-SUFFIX,m-team.cc,DIRECT
+
+  # Transmission
+  - DOMAIN-SUFFIX,portcheck.transmissionbt.com,DIRECT
+
+  # Overcast
+  - DOMAIN-SUFFIX,overcast.fm,🚀 默认代理
+  - DOMAIN-SUFFIX,overcast-cdn.com,🚀 默认代理
+
+  # JPush
+  - DOMAIN-SUFFIX,jpush.cn,🚀 默认代理
+
+  # Weverse / Naver
+  - DOMAIN-SUFFIX,naver.com,🚀 默认代理
+  - DOMAIN-SUFFIX,weverseshop.io,🚀 默认代理
+  - DOMAIN-SUFFIX,navercorp.com,🚀 默认代理
+
+  # Clash
+  - DOMAIN-SUFFIX,stash.wiki,🚀 默认代理
+  - DOMAIN-SUFFIX,clashmi.app,🚀 默认代理
+  - DOMAIN-SUFFIX,clash.md,🚀 默认代理
+
+  # =========================================================
+  # 2. 国内网络 —— 白名单策略
+  # =========================================================
+
+  - RULE-SET,private_domain,DIRECT
+  - RULE-SET,private_ip,DIRECT,no-resolve
+  - RULE-SET,cn_domain,DIRECT
+
+  # =========================================================
+  # 3. 海外服务 DOMAIN 分类
+  # =========================================================
+
+  - RULE-SET,ai,🤖 Ai
+
+  - RULE-SET,github_domain,👨🏿‍💻 GitHub
+
+  - RULE-SET,google_domain,📹 Google
+
+  # Social
+  - RULE-SET,whatsapp_domain,🐬 Social
+  - RULE-SET,instagram_domain,🐬 Social
+  - RULE-SET,facebook_domain,🐬 Social
+  - RULE-SET,snapchat_domain,🐬 Social
+  - RULE-SET,telegram_domain,🐬 Social
+  - RULE-SET,twitter_domain,🐬 Social
+  - RULE-SET,discord_domain,🐬 Social
+
+  # Microsoft
+  - RULE-SET,microsoft_domain,💻 Microsoft
+
+  # Apple
+  - RULE-SET,apple_domain,🍎 Apple
+
+  # Spotify
+  - RULE-SET,spotify_domain,🍀 Spotify
+
+  # Shield
+  - RULE-SET,porn_domain,🔞 Shield
+  - DOMAIN-SUFFIX,91porn.com,🔞 Shield
+  - DOMAIN-SUFFIX,njavtv.com,🔞 Shield
+
+  # Netflix
+  - RULE-SET,netflix_domain,🎥 NETFLIX
+
+  # Games
+  - RULE-SET,games_domain,📲 Games
+  - DOMAIN-SUFFIX,2ksports.com,📲 Games
+  - DOMAIN-SUFFIX,marketingcloudapis.com,📲 Games
+
+  # PayPal
+  - RULE-SET,paypal_domain,💶 PayPal
+
+  # =========================================================
+  # 4. IP RULE-SET
+  # =========================================================
+
+  - RULE-SET,telegram_ip,🐬 Social,no-resolve
+  - RULE-SET,twitter_ip,🐬 Social,no-resolve
+  - RULE-SET,apple_ip,🍎 Apple,no-resolve
+  - RULE-SET,google_ip,📹 Google,no-resolve
+  - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve
+
+  # =========================================================
+  # 5. Games ASN —— IP 无域名/域名规则未命中时补充识别
+  # =========================================================
+
+  - IP-ASN,395856,📲 Games,no-resolve   # 2K Games
+  - IP-ASN,394977,📲 Games,no-resolve   # Take-Two
+  - IP-ASN,46555,📲 Games,no-resolve    # Take-Two
+  - IP-ASN,32590,📲 Games,no-resolve    # Valve / Steam
+  - IP-ASN,33353,📲 Games,no-resolve    # PlayStation
+  - IP-ASN,11278,📲 Games,no-resolve    # Nintendo of America
+  - IP-ASN,152877,📲 Games,no-resolve   # Nintendo Japan
+  - IP-ASN,22697,📲 Games,no-resolve    # Roblox
+  - IP-ASN,11281,📲 Games,no-resolve    # Roblox Corporate
+
+  # =========================================================
+  # 6. Telegram ASN —— Telegram IP 补充识别
+  # =========================================================
+
+  - IP-ASN,44907,🐬 Social,no-resolve
+  - IP-ASN,59930,🐬 Social,no-resolve
+  - IP-ASN,62014,🐬 Social,no-resolve
+  - IP-ASN,62041,🐬 Social,no-resolve
+  - IP-ASN,211157,🐬 Social,no-resolve
+
+  # =========================================================
+  # 7. 非中国大陆域名兜底
+  # =========================================================
+
+  - RULE-SET,geolocation-!cn,🚀 默认代理
+
+  # =========================================================
+  # 8. 中国大陆 IP 兜底
+  # =========================================================
+
+  - RULE-SET,cn_ip,DIRECT,no-resolve
+
+  # =========================================================
+  # 9. 最终兜底
+  # =========================================================
+
+  - MATCH,🐟 漏网之鱼
+
+# 规则集
+## type：可选http/file/inline  behavior：可选domain/ipcidr/classical format：可选yaml/text/mrs
+rule-anchor:
+  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
+  domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
+  class: &class {type: http, interval: 86400, behavior: classical, format: text}
+rule-providers: 
+  private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
+  ai: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs" }
+  youtube_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
+  google_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
+  github_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
+  spotify_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs"}
+  telegram_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
+  netflix_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
+  paypal_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs"}
+  whatsapp_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/whatsapp.mrs"}
+  facebook_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs"}
+  instagram_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/instagram.mrs"}
+  snapchat_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/snap.mrs"}  
+  twitter_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs"}  
+  discord_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/discord.mrs"} 
+  microsoft_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
+  apple_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"}
+  porn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-porn.mrs"}
+  games_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-games-!cn.mrs"}
+  geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
+  cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
+  
+  private_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"}
+  cn_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
+  google_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
+  telegram_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
+  twitter_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/twitter.mrs"}
+  netflix_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
+  apple_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs"}
