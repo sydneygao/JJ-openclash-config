@@ -1,6 +1,7 @@
 # JJ-openclash-config
-OpenWrt下的OpenClash配置文件。
+## OpenClash的配置文件，OpenWrt系统。
 
+### 🔗 配置下载链接
 ### 在OpenClash 配置管理 中选择「上传」：
 
  **原始链接：**
