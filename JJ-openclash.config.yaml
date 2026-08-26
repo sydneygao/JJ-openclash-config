@@ -101,11 +101,11 @@ proxy-groups:
   - {name: 🔞 Shield, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT, REJECT]}
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
   # 区域自动选择组
-  - {name: 🇭🇰 香港节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "HKG"}
-  - {name: 🇯🇵 日本节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "JPN"}
-  - {name: 🇸🇬 新加坡节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "SGP"}
-  - {name: 🇺🇸 美国节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "USA"}
-  - {name: ♻️ 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(HKG|JPN|SGP|USA) 0[1-5]"}
+  - {name: 🇭🇰 香港节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(香港|港|HKG|HK|Hong[ _-]*Kong)"}
+  - {name: 🇯🇵 日本节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(日本|日|JPN|JP|Japan|Tokyo|东京|東京|Osaka|大阪)"}
+  - {name: 🇸🇬 新加坡节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(新加坡|狮城|獅城|SGP|SG|Singapore)"}
+  - {name: 🇺🇸 美国节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(美国|美國|USA|US|United[ _-]*States|America)"}
+  - {name: ♻️ 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(香港|港|HKG|HK|Hong[ _-]*Kong|日本|日|JPN|JP|Japan|Tokyo|东京|東京|Osaka|大阪|新加坡|狮城|獅城|SGP|SG|Singapore|美国|美國|USA|US|United[ _-]*States|America)"}
   - {name: 🌐 手动选择, type: select, include-all: true}
 
 # 规则匹配
