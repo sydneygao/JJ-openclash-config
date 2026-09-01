@@ -152,7 +152,9 @@ rules:
   # 3. 海外服务 DOMAIN 分类
   # =========================================================
 
-  - RULE-SET,ai,🤖 Ai
+  - RULE-SET,ai_domain,🤖 Ai
+  - DOMAIN-SUFFIX,searchgpt.com,🤖 Ai # ChatGPT
+  - IP-ASN,399358,🤖 Ai,no-resolve # Claude
 
   - RULE-SET,github_domain,👨🏿‍💻 GitHub
 
@@ -252,7 +254,7 @@ rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 rule-providers: 
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
-  ai: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs" }
+  ai_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs" }
   youtube_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
   google_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
   github_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
