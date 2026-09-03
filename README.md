@@ -1,9 +1,7 @@
 # JJ-openclash-config
-## OpenClash Configuration File for OpenWrt Systems.
 
-### 🔗 Configuration Download Links
-### In OpenClash's "Config Management", select "Upload":
-
+### 🔗 配置文件下载链接
+**Step 1. 在Stash首页左上角，点击进入配置列表,导入-从URL下载，填写以下链接。**
 **Original link:**
 ```text
 https://raw.githubusercontent.com/sydneygao/JJ-openclash-config/main/JJ-openclash-config.yaml
@@ -12,7 +10,7 @@ https://raw.githubusercontent.com/sydneygao/JJ-openclash-config/main/JJ-openclas
 ```text
 https://cdn.jsdelivr.net/gh/sydneygao/JJ-openclash-config@main/JJ-openclash-config.yaml
 ```
-**In the configuration file list, find `JJ-openclash-config.yaml`, select "Edit", fill in the complete ✈️airport subscription address, save and apply.**
+**Step 2. 在Stash首页左上角，点击进入配置列表, 找到 `JJ-openclash-config.yaml`, 选择 "编辑", 填写机场订阅地址。**
 ```text
 # 机场订阅
 # 替换自己的机场订阅地址 url: "https://"
