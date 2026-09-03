@@ -25,6 +25,5 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 300
 ```
-### 🤝 Contributing
-Issues and Pull Requests are welcome to help improve this configuration!
+
 
