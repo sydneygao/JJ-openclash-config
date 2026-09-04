@@ -1,11 +1,12 @@
+# 在OpenWrt下的OpenClash配置文件
+# 使用方法：使用前填写完整机场订阅地址
+
 # 机场订阅
-# 替换自己的机场订阅地址 url: "https://"
-# 订阅更新频率(秒)，不更新填写 interval: 0
 proxy-providers:
   Airport1:
-    url: "https://"
+    url: "https://" # 机场订阅替换自己的机场订阅地址 url: "https://"
     type: http
-    interval: 86400
+    interval: 86400 # 订阅更新频率(秒)，不更新填写 interval: 0
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
