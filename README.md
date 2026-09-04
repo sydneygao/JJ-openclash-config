@@ -3,11 +3,11 @@
 ### 🔗 配置文件下载链接
 **Original link:**
 ```text
-https://raw.githubusercontent.com/sydneygao/JJ-openclash-config/main/JJ-openclash-config.yaml
+https://raw.githubusercontent.com/sydneygao/JJ-openclash-config/main/JJ-config.yaml
 ```
 **China acceleration 🚀:**
 ```text
-https://cdn.jsdelivr.net/gh/sydneygao/JJ-openclash-config@main/JJ-openclash-config.yaml
+https://cdn.jsdelivr.net/gh/sydneygao/JJ-openclash-config@main/JJ-config.yaml
 ```
 **编辑，添加机场订阅**
 ```text
