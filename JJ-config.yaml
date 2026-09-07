@@ -112,7 +112,14 @@ proxy-groups:
 # 规则匹配
 rules:
   # =========================================================
-  # 1. 手工 DOMAIN 规则 —— 明确覆盖后续规则集
+  # 1. 内网优先
+  # =========================================================
+
+  - RULE-SET,private_domain,DIRECT
+  - RULE-SET,private_ip,DIRECT,no-resolve
+  
+  # =========================================================
+  # 2. 手工 DOMAIN 规则 —— 明确覆盖后续规则集
   # =========================================================
 
   # > 国内/直连
@@ -121,7 +128,7 @@ rules:
   - DOMAIN,git.yylx.win,DIRECT
   - DOMAIN-SUFFIX,m-team.cc,DIRECT
 
-  # Transmission
+  # Transmission端口测试
   - DOMAIN-SUFFIX,portcheck.transmissionbt.com,DIRECT
 
   # Overcast
@@ -142,24 +149,19 @@ rules:
   - DOMAIN-SUFFIX,clash.md,🚀 默认代理
 
   # =========================================================
-  # 2. 国内网络 —— 白名单策略
-  # =========================================================
-
-  - RULE-SET,private_domain,DIRECT
-  - RULE-SET,private_ip,DIRECT,no-resolve
-  - RULE-SET,cn_domain,DIRECT
-
-  # =========================================================
   # 3. 海外服务 DOMAIN 分类
   # =========================================================
 
+  # Ai前置，防风控
   - RULE-SET,ai_domain,🤖 Ai
   - DOMAIN-SUFFIX,searchgpt.com,🤖 Ai # ChatGPT
   - IP-ASN,399358,🤖 Ai,no-resolve # Claude
 
-  - RULE-SET,github_domain,👨🏿‍💻 GitHub
-
+  # Google，含YouTube
   - RULE-SET,google_domain,📹 Google
+
+  # GitHub
+  - RULE-SET,github_domain,🚀 默认代理
 
   # Social
   - RULE-SET,whatsapp_domain,🐬 Social
@@ -194,9 +196,15 @@ rules:
 
   # PayPal
   - RULE-SET,paypal_domain,💶 PayPal
+  
+  # =========================================================
+  # 4. 国内域名直连
+  # =========================================================
+  
+  - RULE-SET,cn_domain,DIRECT
 
   # =========================================================
-  # 4. IP RULE-SET
+  # 5. IP 规则集
   # =========================================================
 
   - RULE-SET,telegram_ip,🐬 Social,no-resolve
@@ -206,7 +214,7 @@ rules:
   - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve
 
   # =========================================================
-  # 5. Games ASN —— IP 无域名/域名规则未命中时补充识别
+  # 6. Games ASN —— IP 无域名/域名规则未命中时补充识别
   # =========================================================
 
   - IP-ASN,395856,📲 Games,no-resolve   # 2K Games
@@ -220,7 +228,7 @@ rules:
   - IP-ASN,11281,📲 Games,no-resolve    # Roblox Corporate
 
   # =========================================================
-  # 6. Telegram ASN —— Telegram IP 补充识别
+  # 7. Telegram ASN —— Telegram IP 补充识别
   # =========================================================
 
   - IP-ASN,44907,🐬 Social,no-resolve
@@ -230,13 +238,13 @@ rules:
   - IP-ASN,211157,🐬 Social,no-resolve
 
   # =========================================================
-  # 7. 非中国大陆域名兜底
+  # 8. 非中国大陆域名兜底
   # =========================================================
 
   - RULE-SET,geolocation-!cn,🚀 默认代理
 
   # =========================================================
-  # 8. 中国大陆 IP 兜底
+  # 9. 中国大陆 IP 兜底
   # =========================================================
 
   - RULE-SET,cn_ip,DIRECT,no-resolve
@@ -256,7 +264,6 @@ rule-anchor:
 rule-providers: 
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   ai_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs" }
-  youtube_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
   google_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
   github_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
   spotify_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs"}
