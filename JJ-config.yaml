@@ -64,9 +64,43 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.0/16
   fake-ip-filter:
-    - "+.lan"
-    - "+.local"
-    - "+.market.xiaomi.com"
+    # LAN / mDNS
+    - '+.lan'
+    - '+.local'
+
+    # Xiaomi / Mi Home / IoT
+    - '+.mi.com'
+    - '+.xiaomi.com'
+    - '+.xiaomi.net'
+    - '+.miui.com'
+
+    # STUN / P2P / NAT Traversal
+    - '+.stun.*.*'
+    - '+.stun.*.*.*'
+    - '+.stun.*.*.*.*'
+    - '+.stun.*.*.*.*.*'
+
+    # Apple
+    - 'captive.apple.com'
+    - '*.push.apple.com'
+
+    # Google Lens / Voice
+    - 'lens.l.google.com'
+
+    # Nintendo Switch
+    - '*.n.n.srv.nintendo.net'
+
+    # PlayStation
+    - '+.stun.playstation.net'
+
+    # Xbox
+    - 'xbox.*.*.microsoft.com'
+    - '*.*.xboxlive.com'
+
+    # Microsoft Connectivity
+    - '*.msftncsi.com'
+    - '*.msftconnecttest.com'
+    - '*.msidentity.com'
   
   # 启动时用于解析域名服务器IP的“救命DNS”，用最快的UDP即可
   default-nameserver:
