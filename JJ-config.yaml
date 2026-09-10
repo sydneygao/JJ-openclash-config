@@ -117,31 +117,31 @@ dns:
     - 223.5.5.5
     - 119.29.29.29
  
-# 出站策略，根据自己情况调整每个策略里分组排序，增删都可以，比如把美国自动放到第一个，比如删除香港故转，注意别漏掉表情逗号等。
+# 出站策略，根据自己情况调整每个策略里分组排序，增删都可以，比如把美国自动放到第一个，比如删除香港故转，注意别漏掉逗号等。
 # 如果相应分组没有筛选到对应的国家，请根据自己节点名字调整筛选关键字。
 # 没有再使用锚点和icon图标，是考虑很多新手修改难度，这样新手修改某个分组更容易些。
 proxy-groups:
   # SSID 策略组：特定 WiFi 下自动直连，其他情况使用自动选择
-  - {name: 🚀 默认代理, type: select, proxies: [🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, ♻️ 自动选择, 🌐 手动选择, DIRECT]}
-  - {name: 📹 Google, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
-  - {name: 🤖 Ai, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
-  - {name: 🍎 Apple, type: select, proxies: [DIRECT, 🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择]}
-  - {name: 👨🏿‍💻 GitHub, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
-  - {name: 🐬 Social, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
-  - {name: 💻 Microsoft, type: select, proxies: [DIRECT, 🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择]}
-  - {name: 📲 Games, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
-  - {name: 🎥 NETFLIX, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
-  - {name: 🍀 Spotify, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
-  - {name: 💶 PayPal, type: select, proxies: [🇺🇸 美国节点, 🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🌐 手动选择, DIRECT]}
-  - {name: 🔞 Shield, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT, REJECT]}
-  - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 默认代理, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🌐 手动选择, DIRECT]}
+  - {name: 默认代理, type: select, proxies: [香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]}
+  - {name: Google, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
+  - {name: Ai, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
+  - {name: Apple, type: select, proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择]}
+  - {name: GitHub, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
+  - {name: Social, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
+  - {name: Microsoft, type: select, proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择]}
+  - {name: Games, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
+  - {name: NETFLIX, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
+  - {name: Spotify, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
+  - {name: PayPal, type: select, proxies: [美国节点, 默认代理, 香港节点, 日本节点, 新加坡节点, 手动选择, DIRECT]}
+  - {name: Shield, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT, REJECT]}
+  - {name: 漏网之鱼, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
   # 区域自动选择组
-  - {name: 🇭🇰 香港节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(香港|港|HKG|HK|Hong[ _-]*Kong)"}
-  - {name: 🇯🇵 日本节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(日本|日|JPN|JP|Japan|Tokyo|东京|東京|Osaka|大阪)"}
-  - {name: 🇸🇬 新加坡节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(新加坡|狮城|獅城|SGP|SG|Singapore)"}
-  - {name: 🇺🇸 美国节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(美国|美國|USA|US|United[ _-]*States|America)"}
-  - {name: ♻️ 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(香港|港|HKG|HK|Hong[ _-]*Kong|日本|日|JPN|JP|Japan|Tokyo|东京|東京|Osaka|大阪|新加坡|狮城|獅城|SGP|SG|Singapore|美国|美國|USA|US|United[ _-]*States|America)"}
-  - {name: 🌐 手动选择, type: select, include-all: true}
+  - {name: 香港节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(香港|港|HKG|HK|Hong[ _-]*Kong)"}
+  - {name: 日本节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(日本|日|JPN|JP|Japan|Tokyo|东京|東京|Osaka|大阪)"}
+  - {name: 新加坡节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(新加坡|狮城|獅城|SGP|SG|Singapore)"}
+  - {name: 美国节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(美国|美國|USA|US|United[ _-]*States|America)"}
+  - {name: 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(香港|港|HKG|HK|Hong[ _-]*Kong|日本|日|JPN|JP|Japan|Tokyo|东京|東京|Osaka|大阪|新加坡|狮城|獅城|SGP|SG|Singapore|美国|美國|USA|US|United[ _-]*States|America)"}
+  - {name: 手动选择, type: select, include-all: true}
 
 # 规则匹配
 rules:
@@ -166,77 +166,77 @@ rules:
   - DOMAIN-SUFFIX,portcheck.transmissionbt.com,DIRECT
 
   # Overcast
-  - DOMAIN-SUFFIX,overcast.fm,🚀 默认代理
-  - DOMAIN-SUFFIX,overcast-cdn.com,🚀 默认代理
+  - DOMAIN-SUFFIX,overcast.fm,默认代理
+  - DOMAIN-SUFFIX,overcast-cdn.com,默认代理
 
   # JPush
-  - DOMAIN-SUFFIX,jpush.cn,🚀 默认代理
+  - DOMAIN-SUFFIX,jpush.cn,默认代理
 
   # Weverse / Naver
-  - DOMAIN-SUFFIX,naver.com,🚀 默认代理
-  - DOMAIN-SUFFIX,weverseshop.io,🚀 默认代理
-  - DOMAIN-SUFFIX,navercorp.com,🚀 默认代理
+  - DOMAIN-SUFFIX,naver.com,默认代理
+  - DOMAIN-SUFFIX,weverseshop.io,默认代理
+  - DOMAIN-SUFFIX,navercorp.com,默认代理
 
   # Clash
-  - DOMAIN-SUFFIX,stash.wiki,🚀 默认代理
-  - DOMAIN-SUFFIX,clashmi.app,🚀 默认代理
-  - DOMAIN-SUFFIX,clash.md,🚀 默认代理
+  - DOMAIN-SUFFIX,stash.wiki,默认代理
+  - DOMAIN-SUFFIX,clashmi.app,默认代理
+  - DOMAIN-SUFFIX,clash.md,默认代理
 
   # =========================================================
   # 3. 海外服务 DOMAIN 分类
   # =========================================================
 
   # Ai前置，防风控；主规则集 + 四源验证后的高置信补充
-  - RULE-SET,ai_domain,🤖 Ai
-  - DOMAIN-SUFFIX,searchgpt.com,🤖 Ai
-  - DOMAIN,cdn.openaimerge.com,🤖 Ai
-  - DOMAIN-SUFFIX,gemini.googleusercontent.com,🤖 Ai
-  - DOMAIN,webchannel-robinfrontend-pa.googleapis.com,🤖 Ai
-  - DOMAIN-SUFFIX,claudeusercontent.com,🤖 Ai
-  - DOMAIN,copilot.cloud.microsoft,🤖 Ai
-  - DOMAIN-SUFFIX,copilot.microsoft.com,🤖 Ai
-  - DOMAIN,copilotstudio.microsoft.com,🤖 Ai
-  - DOMAIN,m365.cloud.microsoft,🤖 Ai
+  - RULE-SET,ai_domain,Ai
+  - DOMAIN-SUFFIX,searchgpt.com,Ai
+  - DOMAIN,cdn.openaimerge.com,Ai
+  - DOMAIN-SUFFIX,gemini.googleusercontent.com,Ai
+  - DOMAIN,webchannel-robinfrontend-pa.googleapis.com,Ai
+  - DOMAIN-SUFFIX,claudeusercontent.com,Ai
+  - DOMAIN,copilot.cloud.microsoft,Ai
+  - DOMAIN-SUFFIX,copilot.microsoft.com,Ai
+  - DOMAIN,copilotstudio.microsoft.com,Ai
+  - DOMAIN,m365.cloud.microsoft,Ai
 
   # Google，含YouTube
-  - RULE-SET,google_domain,📹 Google
+  - RULE-SET,google_domain,Google
 
   # GitHub
-  - RULE-SET,github_domain,🚀 默认代理
+  - RULE-SET,github_domain,默认代理
 
   # Social
-  - RULE-SET,whatsapp_domain,🐬 Social
-  - RULE-SET,instagram_domain,🐬 Social
-  - RULE-SET,facebook_domain,🐬 Social
-  - RULE-SET,snapchat_domain,🐬 Social
-  - RULE-SET,telegram_domain,🐬 Social
-  - RULE-SET,twitter_domain,🐬 Social
-  - RULE-SET,discord_domain,🐬 Social
+  - RULE-SET,whatsapp_domain,Social
+  - RULE-SET,instagram_domain,Social
+  - RULE-SET,facebook_domain,Social
+  - RULE-SET,snapchat_domain,Social
+  - RULE-SET,telegram_domain,Social
+  - RULE-SET,twitter_domain,Social
+  - RULE-SET,discord_domain,Social
 
   # Microsoft
-  - RULE-SET,microsoft_domain,💻 Microsoft
+  - RULE-SET,microsoft_domain,Microsoft
 
   # Apple
-  - RULE-SET,apple_domain,🍎 Apple
+  - RULE-SET,apple_domain,Apple
 
   # Spotify
-  - RULE-SET,spotify_domain,🍀 Spotify
+  - RULE-SET,spotify_domain,Spotify
 
   # Shield
-  - RULE-SET,porn_domain,🔞 Shield
-  - DOMAIN-SUFFIX,91porn.com,🔞 Shield
-  - DOMAIN-SUFFIX,njavtv.com,🔞 Shield
+  - RULE-SET,porn_domain,Shield
+  - DOMAIN-SUFFIX,91porn.com,Shield
+  - DOMAIN-SUFFIX,njavtv.com,Shield
 
   # Netflix
-  - RULE-SET,netflix_domain,🎥 NETFLIX
+  - RULE-SET,netflix_domain,NETFLIX
 
   # Games
-  - RULE-SET,games_domain,📲 Games
-  - DOMAIN-SUFFIX,2ksports.com,📲 Games
-  - DOMAIN-SUFFIX,marketingcloudapis.com,📲 Games
+  - RULE-SET,games_domain,Games
+  - DOMAIN-SUFFIX,2ksports.com,Games
+  - DOMAIN-SUFFIX,marketingcloudapis.com,Games
 
   # PayPal
-  - RULE-SET,paypal_domain,💶 PayPal
+  - RULE-SET,paypal_domain,PayPal
   
   # =========================================================
   # 4. 国内域名直连
@@ -248,58 +248,58 @@ rules:
   # 5. IP 规则集
   # =========================================================
 
-  - RULE-SET,telegram_ip,🐬 Social,no-resolve
-  - RULE-SET,twitter_ip,🐬 Social,no-resolve
-  - RULE-SET,apple_ip,🍎 Apple,no-resolve
-  - RULE-SET,google_ip,📹 Google,no-resolve
-  - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve
+  - RULE-SET,telegram_ip,Social,no-resolve
+  - RULE-SET,twitter_ip,Social,no-resolve
+  - RULE-SET,apple_ip,Apple,no-resolve
+  - RULE-SET,google_ip,Google,no-resolve
+  - RULE-SET,netflix_ip,NETFLIX,no-resolve
 
   # =========================================================
   # 6. ASN 补充规则 —— 四源验证，仅保留服务/厂商专属性较高的 ASN
   # =========================================================
 
   # AI / Anthropic
-  - IP-ASN,399358,🤖 Ai,no-resolve
+  - IP-ASN,399358,Ai,no-resolve
 
   # Social / Meta / WhatsApp / Snapchat
-  - IP-ASN,11917,🐬 Social,no-resolve     # WhatsApp
-  - IP-ASN,395291,🐬 Social,no-resolve    # Snapchat
-  - IP-ASN,32934,🐬 Social,no-resolve     # Meta
+  - IP-ASN,11917,Social,no-resolve     # WhatsApp
+  - IP-ASN,395291,Social,no-resolve    # Snapchat
+  - IP-ASN,32934,Social,no-resolve     # Meta
 
   # GitHub
-  - IP-ASN,36459,🚀 默认代理,no-resolve   # GitHub
+  - IP-ASN,36459,默认代理,no-resolve   # GitHub
 
   # PayPal
-  - IP-ASN,1449,💶 PayPal,no-resolve
-  - IP-ASN,17012,💶 PayPal,no-resolve
-  - IP-ASN,26444,💶 PayPal,no-resolve
-  - IP-ASN,395313,💶 PayPal,no-resolve
+  - IP-ASN,1449,PayPal,no-resolve
+  - IP-ASN,17012,PayPal,no-resolve
+  - IP-ASN,26444,PayPal,no-resolve
+  - IP-ASN,395313,PayPal,no-resolve
 
   # Games
-  - IP-ASN,395856,📲 Games,no-resolve   # 2K Games
-  - IP-ASN,394977,📲 Games,no-resolve   # Take-Two
-  - IP-ASN,46555,📲 Games,no-resolve    # Take-Two
-  - IP-ASN,54107,📲 Games,no-resolve    # Take-Two
-  - IP-ASN,202021,📲 Games,no-resolve   # Take-Two
-  - IP-ASN,32590,📲 Games,no-resolve    # Valve / Steam
-  - IP-ASN,33353,📲 Games,no-resolve    # PlayStation
-  - IP-ASN,11278,📲 Games,no-resolve    # Nintendo of America
-  - IP-ASN,152877,📲 Games,no-resolve   # Nintendo Japan
-  - IP-ASN,22697,📲 Games,no-resolve    # Roblox
-  - IP-ASN,11281,📲 Games,no-resolve    # Roblox Corporate
+  - IP-ASN,395856,Games,no-resolve   # 2K Games
+  - IP-ASN,394977,Games,no-resolve   # Take-Two
+  - IP-ASN,46555,Games,no-resolve    # Take-Two
+  - IP-ASN,54107,Games,no-resolve    # Take-Two
+  - IP-ASN,202021,Games,no-resolve   # Take-Two
+  - IP-ASN,32590,Games,no-resolve    # Valve / Steam
+  - IP-ASN,33353,Games,no-resolve    # PlayStation
+  - IP-ASN,11278,Games,no-resolve    # Nintendo of America
+  - IP-ASN,152877,Games,no-resolve   # Nintendo Japan
+  - IP-ASN,22697,Games,no-resolve    # Roblox
+  - IP-ASN,11281,Games,no-resolve    # Roblox Corporate
 
   # Telegram
-  - IP-ASN,44907,🐬 Social,no-resolve
-  - IP-ASN,59930,🐬 Social,no-resolve
-  - IP-ASN,62014,🐬 Social,no-resolve
-  - IP-ASN,62041,🐬 Social,no-resolve
-  - IP-ASN,211157,🐬 Social,no-resolve
+  - IP-ASN,44907,Social,no-resolve
+  - IP-ASN,59930,Social,no-resolve
+  - IP-ASN,62014,Social,no-resolve
+  - IP-ASN,62041,Social,no-resolve
+  - IP-ASN,211157,Social,no-resolve
 
   # =========================================================
   # 7. 非中国大陆域名兜底
   # =========================================================
 
-  - RULE-SET,geolocation-!cn,🚀 默认代理
+  - RULE-SET,geolocation-!cn,默认代理
 
   # =========================================================
   # 8. 中国大陆 IP 兜底
@@ -311,7 +311,7 @@ rules:
   # 9. 最终兜底
   # =========================================================
 
-  - MATCH,🐟 漏网之鱼
+  - MATCH,漏网之鱼
 
 # 规则集
 ## type：可选http/file/inline  behavior：可选domain/ipcidr/classical format：可选yaml/text/mrs
