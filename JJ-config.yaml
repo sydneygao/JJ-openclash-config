@@ -121,7 +121,7 @@ dns:
 # 如果相应分组没有筛选到对应的国家，请根据自己节点名字调整筛选关键字。
 # 没有再使用锚点和icon图标，是考虑很多新手修改难度，这样新手修改某个分组更容易些。
 proxy-groups:
-  # SSID 策略组：特定 WiFi 下自动直连，其他情况使用自动选择
+  # 应用端策略组
   - {name: 默认代理, type: select, proxies: [香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]}
   - {name: Google, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
   - {name: Ai, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
@@ -135,7 +135,7 @@ proxy-groups:
   - {name: PayPal, type: select, proxies: [美国节点, 默认代理, 香港节点, 日本节点, 新加坡节点, 手动选择, DIRECT]}
   - {name: Shield, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT, REJECT]}
   - {name: 漏网之鱼, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
-  # 区域自动选择组
+  # 区域策略组
   - {name: 香港节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(香港|港|HKG|HK|Hong[ _-]*Kong)"}
   - {name: 日本节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(日本|日|JPN|JP|Japan|Tokyo|东京|東京|Osaka|大阪)"}
   - {name: 新加坡节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(新加坡|狮城|獅城|SGP|SG|Singapore)"}
@@ -153,7 +153,7 @@ rules:
   - RULE-SET,private_ip,DIRECT,no-resolve
   
   # =========================================================
-  # 2. 手工 DOMAIN 规则 —— 明确覆盖后续规则集
+  # 2. 自定义前置规则
   # =========================================================
 
   # > 国内/直连
