@@ -186,10 +186,17 @@ rules:
   # 3. 海外服务 DOMAIN 分类
   # =========================================================
 
-  # Ai前置，防风控
+  # Ai前置，防风控；主规则集 + 四源验证后的高置信补充
   - RULE-SET,ai_domain,🤖 Ai
-  - DOMAIN-SUFFIX,searchgpt.com,🤖 Ai # ChatGPT
-  - IP-ASN,399358,🤖 Ai,no-resolve # Claude
+  - DOMAIN-SUFFIX,searchgpt.com,🤖 Ai
+  - DOMAIN,cdn.openaimerge.com,🤖 Ai
+  - DOMAIN-SUFFIX,gemini.googleusercontent.com,🤖 Ai
+  - DOMAIN,webchannel-robinfrontend-pa.googleapis.com,🤖 Ai
+  - DOMAIN-SUFFIX,claudeusercontent.com,🤖 Ai
+  - DOMAIN,copilot.cloud.microsoft,🤖 Ai
+  - DOMAIN-SUFFIX,copilot.microsoft.com,🤖 Ai
+  - DOMAIN,copilotstudio.microsoft.com,🤖 Ai
+  - DOMAIN,m365.cloud.microsoft,🤖 Ai
 
   # Google，含YouTube
   - RULE-SET,google_domain,📹 Google
@@ -248,12 +255,32 @@ rules:
   - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve
 
   # =========================================================
-  # 6. Games ASN —— IP 无域名/域名规则未命中时补充识别
+  # 6. ASN 补充规则 —— 四源验证，仅保留服务/厂商专属性较高的 ASN
   # =========================================================
 
+  # AI / Anthropic
+  - IP-ASN,399358,🤖 Ai,no-resolve
+
+  # Social / Meta / WhatsApp / Snapchat
+  - IP-ASN,11917,🐬 Social,no-resolve     # WhatsApp
+  - IP-ASN,395291,🐬 Social,no-resolve    # Snapchat
+  - IP-ASN,32934,🐬 Social,no-resolve     # Meta
+
+  # GitHub
+  - IP-ASN,36459,🚀 默认代理,no-resolve   # GitHub
+
+  # PayPal
+  - IP-ASN,1449,💶 PayPal,no-resolve
+  - IP-ASN,17012,💶 PayPal,no-resolve
+  - IP-ASN,26444,💶 PayPal,no-resolve
+  - IP-ASN,395313,💶 PayPal,no-resolve
+
+  # Games
   - IP-ASN,395856,📲 Games,no-resolve   # 2K Games
   - IP-ASN,394977,📲 Games,no-resolve   # Take-Two
   - IP-ASN,46555,📲 Games,no-resolve    # Take-Two
+  - IP-ASN,54107,📲 Games,no-resolve    # Take-Two
+  - IP-ASN,202021,📲 Games,no-resolve   # Take-Two
   - IP-ASN,32590,📲 Games,no-resolve    # Valve / Steam
   - IP-ASN,33353,📲 Games,no-resolve    # PlayStation
   - IP-ASN,11278,📲 Games,no-resolve    # Nintendo of America
@@ -261,10 +288,7 @@ rules:
   - IP-ASN,22697,📲 Games,no-resolve    # Roblox
   - IP-ASN,11281,📲 Games,no-resolve    # Roblox Corporate
 
-  # =========================================================
-  # 7. Telegram ASN —— Telegram IP 补充识别
-  # =========================================================
-
+  # Telegram
   - IP-ASN,44907,🐬 Social,no-resolve
   - IP-ASN,59930,🐬 Social,no-resolve
   - IP-ASN,62014,🐬 Social,no-resolve
@@ -272,13 +296,13 @@ rules:
   - IP-ASN,211157,🐬 Social,no-resolve
 
   # =========================================================
-  # 8. 非中国大陆域名兜底
+  # 7. 非中国大陆域名兜底
   # =========================================================
 
   - RULE-SET,geolocation-!cn,🚀 默认代理
 
   # =========================================================
-  # 9. 中国大陆 IP 兜底
+  # 8. 中国大陆 IP 兜底
   # =========================================================
 
   - RULE-SET,cn_ip,DIRECT,no-resolve
