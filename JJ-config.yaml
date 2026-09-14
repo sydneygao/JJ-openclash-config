@@ -122,7 +122,7 @@ dns:
 # 没有再使用锚点和icon图标，是考虑很多新手修改难度，这样新手修改某个分组更容易些。
 proxy-groups:
   # 应用端策略组
-  - {name: 默认代理, type: select, proxies: [香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 自动选择, 手动选择, DIRECT]}
+  - {name: 默认代理, type: fallback, proxies: [香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点], url: "https://www.gstatic.com/generate_204", interval: 600, timeout: 5000}
   - {name: Google, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
   - {name: Ai, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
   - {name: Apple, type: select, proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择]}
