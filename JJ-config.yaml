@@ -122,25 +122,26 @@ dns:
 # 没有再使用锚点和icon图标，是考虑很多新手修改难度，这样新手修改某个分组更容易些。
 proxy-groups:
   # 应用端策略组
-  - {name: 默认代理, type: select, proxies: [香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]}
-  - {name: Google, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
-  - {name: Ai, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
-  - {name: Apple, type: select, proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择]}
-  - {name: GitHub, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
-  - {name: Social, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
-  - {name: Microsoft, type: select, proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择]}
-  - {name: Games, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
-  - {name: NETFLIX, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
-  - {name: Spotify, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
-  - {name: PayPal, type: select, proxies: [美国节点, 默认代理, 香港节点, 日本节点, 新加坡节点, 手动选择, DIRECT]}
-  - {name: Shield, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT, REJECT]}
-  - {name: 漏网之鱼, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 手动选择, DIRECT]}
+  - {name: 默认代理, type: select, proxies: [香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 自动选择, 手动选择, DIRECT]}
+  - {name: Google, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
+  - {name: Ai, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
+  - {name: Apple, type: select, proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择]}
+  - {name: GitHub, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
+  - {name: Social, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
+  - {name: Microsoft, type: select, proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择]}
+  - {name: Games, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
+  - {name: NETFLIX, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
+  - {name: Spotify, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
+  - {name: PayPal, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
+  - {name: Shield, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT, REJECT]}
+  - {name: 漏网之鱼, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
   # 区域策略组
   - {name: 香港节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(香港|港|HKG|HK|Hong[ _-]*Kong)"}
   - {name: 日本节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(日本|日|JPN|JP|Japan|Tokyo|东京|東京|Osaka|大阪)"}
   - {name: 新加坡节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(新加坡|狮城|獅城|SGP|SG|Singapore)"}
+  - {name: 台湾节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(?:台湾|台灣|🇹🇼|\bTW\b|\bTWN\b|Taiwan|Taipei|TPE)"}
   - {name: 美国节点, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(美国|美國|USA|US|United[ _-]*States|America)"}
-  - {name: 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(香港|港|HKG|HK|Hong[ _-]*Kong|日本|日|JPN|JP|Japan|Tokyo|东京|東京|Osaka|大阪|新加坡|狮城|獅城|SGP|SG|Singapore|美国|美國|USA|US|United[ _-]*States|America)"}
+  - {name: 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 600, lazy: true, filter: "(?i)(香港|港|HKG|HK|Hong[ _-]*Kong|日本|日|JPN|JP|Japan|Tokyo|东京|東京|Osaka|大阪|新加坡|狮城|獅城|SGP|SG|Singapore|台湾|台灣|🇹🇼|\bTW\b|\bTWN\b|Taiwan|Taipei|TPE|美国|美國|USA|US|United[ _-]*States|America)"}
   - {name: 手动选择, type: select, include-all: true}
 
 # 规则匹配
