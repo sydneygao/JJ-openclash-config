@@ -191,12 +191,7 @@ rules:
   - DOMAIN-SUFFIX,searchgpt.com,Ai
   - DOMAIN,cdn.openaimerge.com,Ai
   - DOMAIN-SUFFIX,gemini.googleusercontent.com,Ai
-  - DOMAIN,webchannel-robinfrontend-pa.googleapis.com,Ai
-  - DOMAIN-SUFFIX,claudeusercontent.com,Ai
-  - DOMAIN,copilot.cloud.microsoft,Ai
-  - DOMAIN-SUFFIX,copilot.microsoft.com,Ai
   - DOMAIN,copilotstudio.microsoft.com,Ai
-  - DOMAIN,m365.cloud.microsoft,Ai
 
   # Google，含YouTube
   - RULE-SET,google_domain,Google
@@ -215,6 +210,7 @@ rules:
 
   # Microsoft
   - RULE-SET,microsoft_domain,Microsoft
+  - DOMAIN,m365.cloud.microsoft,Microsoft
 
   # Apple
   - RULE-SET,apple_domain,Apple
@@ -233,8 +229,6 @@ rules:
   # Games
   - RULE-SET,steam@cn_domain,DIRECT
   - RULE-SET,games_domain,Games
-  - DOMAIN-SUFFIX,2ksports.com,Games
-  - DOMAIN-SUFFIX,marketingcloudapis.com,Games
 
   # PayPal
   - RULE-SET,paypal_domain,PayPal
@@ -263,7 +257,6 @@ rules:
   - IP-ASN,399358,Ai,no-resolve
 
   # Social / Meta / WhatsApp / Snapchat
-  - IP-ASN,11917,Social,no-resolve     # WhatsApp
   - IP-ASN,395291,Social,no-resolve    # Snapchat
   - IP-ASN,32934,Social,no-resolve     # Meta
 
@@ -273,8 +266,6 @@ rules:
   # PayPal
   - IP-ASN,1449,PayPal,no-resolve
   - IP-ASN,17012,PayPal,no-resolve
-  - IP-ASN,26444,PayPal,no-resolve
-  - IP-ASN,395313,PayPal,no-resolve
 
   # Games
   - IP-ASN,395856,Games,no-resolve   # 2K Games
@@ -289,12 +280,6 @@ rules:
   - IP-ASN,22697,Games,no-resolve    # Roblox
   - IP-ASN,11281,Games,no-resolve    # Roblox Corporate
 
-  # Telegram
-  - IP-ASN,44907,Social,no-resolve
-  - IP-ASN,59930,Social,no-resolve
-  - IP-ASN,62014,Social,no-resolve
-  - IP-ASN,62041,Social,no-resolve
-  - IP-ASN,211157,Social,no-resolve
 
   # =========================================================
   # 7. 非中国大陆域名兜底
