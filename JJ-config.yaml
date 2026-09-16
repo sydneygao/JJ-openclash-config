@@ -157,31 +157,6 @@ rules:
   # 2. 自定义前置规则
   # =========================================================
 
-  # > 国内/直连
-  - DOMAIN-SUFFIX,unpkg.com,DIRECT
-  - DOMAIN,cdn.jsdelivr.com,DIRECT
-  - DOMAIN,git.yylx.win,DIRECT
-  - DOMAIN-SUFFIX,m-team.cc,DIRECT
-
-  # Transmission端口测试
-  - DOMAIN-SUFFIX,portcheck.transmissionbt.com,DIRECT
-
-  # Overcast
-  - DOMAIN-SUFFIX,overcast.fm,默认代理
-  - DOMAIN-SUFFIX,overcast-cdn.com,默认代理
-
-  # JPush
-  - DOMAIN-SUFFIX,jpush.cn,默认代理
-
-  # Weverse / Naver
-  - DOMAIN-SUFFIX,naver.com,默认代理
-  - DOMAIN-SUFFIX,weverseshop.io,默认代理
-  - DOMAIN-SUFFIX,navercorp.com,默认代理
-
-  # Clash
-  - DOMAIN-SUFFIX,stash.wiki,默认代理
-  - DOMAIN-SUFFIX,clashmi.app,默认代理
-  - DOMAIN-SUFFIX,clash.md,默认代理
 
   # =========================================================
   # 3. 海外服务 DOMAIN 分类
@@ -193,6 +168,8 @@ rules:
   - DOMAIN,cdn.openaimerge.com,Ai
   - DOMAIN-SUFFIX,gemini.googleusercontent.com,Ai
   - DOMAIN,copilotstudio.microsoft.com,Ai
+  - DOMAIN-SUFFIX,muse.ai,Ai
+  - DOMAIN-SUFFIX,skiv.com,Ai
 
   # Google，含YouTube
   - RULE-SET,google_domain,Google
