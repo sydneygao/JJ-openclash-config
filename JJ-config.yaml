@@ -129,6 +129,7 @@ proxy-groups:
   - {name: GitHub, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
   - {name: Social, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
   - {name: Microsoft, type: select, proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择]}
+  - {name: Steam@CN, type: select, proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择]}  
   - {name: Games, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
   - {name: NETFLIX, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
   - {name: Spotify, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
@@ -205,7 +206,7 @@ rules:
   - RULE-SET,netflix_domain,NETFLIX
 
   # Games
-  - RULE-SET,steam@cn_domain,DIRECT
+  - RULE-SET,steam@cn_domain,Steam@CN
   - RULE-SET,games_domain,Games
 
   # PayPal
