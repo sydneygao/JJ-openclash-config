@@ -26,10 +26,11 @@ profile:
   store-selected: true
   store-fake-ip: true
 
-external-controller: 0.0.0.0:9090
+external-controller: 127.0.0.1:9090
 secret: ""
 external-ui: ui
-external-ui-url: "https://gh-proxy.com/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
+# external-ui-url: "https://gh-proxy.com/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
+external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 
 # 嗅探
 sniffer:
@@ -126,7 +127,6 @@ proxy-groups:
   - {name: Google, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
   - {name: Ai, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
   - {name: Apple, type: select, proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择]}
-  - {name: GitHub, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
   - {name: Social, type: select, proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择, DIRECT]}
   - {name: Microsoft, type: select, proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择]}
   - {name: Steam@CN, type: select, proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 台湾节点, 美国节点, 手动选择]}  
@@ -171,7 +171,11 @@ rules:
   - DOMAIN,copilotstudio.microsoft.com,Ai
   - DOMAIN-SUFFIX,muse.ai,Ai
   - DOMAIN-SUFFIX,skiv.com,Ai
-
+  - DOMAIN,webchannel-robinfrontend-pa.googleapis.com,Ai
+  - DOMAIN-SUFFIX,claudeusercontent.com,Ai
+  - DOMAIN-SUFFIX,copilot.cloud.microsoft,Ai
+  - DOMAIN-SUFFIX,copilot.microsoft.com,Ai
+  
   # Google，含YouTube
   - RULE-SET,google_domain,Google
 
