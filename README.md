@@ -1,14 +1,21 @@
 # JJ-openclash-config
 
 ### 🔗 配置文件下载链接
-**Original link:**
+**主链路（gh-proxy.org｜最快，≤60 秒更新）：**
 ```text
-https://raw.githubusercontent.com/sydneygao/JJ-openclash-config/main/JJ-config.yaml
+https://gh-proxy.org/https://raw.githubusercontent.com/sydneygao/JJ-openclash-config/main/JJ-config.yaml
 ```
-**China acceleration 🚀:**
+
+**备链路（gh.idayer.com｜不同链路，实时）：**
+```text
+https://gh.idayer.com/https://raw.githubusercontent.com/sydneygao/JJ-openclash-config/main/JJ-config.yaml
+```
+
+**兜底链路（cdn.jsdelivr.net｜最稳，接受最长约 12 小时延迟）：**
 ```text
 https://cdn.jsdelivr.net/gh/sydneygao/JJ-openclash-config@main/JJ-config.yaml
 ```
+
 **编辑，添加机场订阅**
 ```text
 # 机场订阅
@@ -24,5 +31,4 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 300
 ```
-
 
