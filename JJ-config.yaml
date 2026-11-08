@@ -157,7 +157,10 @@ rules:
   # =========================================================
   # 2. 自定义前置规则
   # =========================================================
-
+  - DOMAIN-SUFFIX,mcdn.bilivideo.cn,REJECT
+  - DOMAIN-SUFFIX,mcdn.bilivideo.com,REJECT
+  - DOMAIN-SUFFIX,szbdyd.com,REJECT
+  - DOMAIN-KEYWORD,pcdn.biliapi.net,REJECT
 
   # =========================================================
   # 3. 海外服务 DOMAIN 分类
